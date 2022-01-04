@@ -9,5 +9,6 @@ Pod::Spec.new do |s|
   s.source_files = 'Sources/*.swift'
   s.swift_versions = ['5.2', '5.3', '5.4']
   s.dependency 'Alamofire'
+  s.dependency 'ReachabilitySwift'
   s.requires_arc = true
 end

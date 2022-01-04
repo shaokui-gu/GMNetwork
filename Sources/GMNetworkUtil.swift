@@ -46,7 +46,6 @@ open class GMNetworkUtil {
                 return new
             }
         }
-        AF.sessionConfiguration.timeoutIntervalForRequest = request.timeOut.toTimeInterval()
         if request.dataArray.count == 0 {
             dataRequest = AF.request(url, method: request.method, parameters: request.parameters, encoder: JSONParameterEncoder.default, headers: HTTPHeaders(headers), interceptor: self.intercapter)
         } else {
