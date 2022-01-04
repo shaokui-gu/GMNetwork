@@ -8,10 +8,14 @@
 
 import Foundation
 import Alamofire
+import UIKit
 
 /// Encode
 public struct EncodableValue: Encodable {
-    let value: Encodable
+    public let value: Encodable
+    public init(value:Encodable) {
+        self.value = value
+    }
     public func encode(to encoder: Encoder) throws {
         try value.encode(to: encoder)
     }
@@ -20,6 +24,11 @@ public struct EncodableValue: Encodable {
 /// Parameters
 public struct Parameters: Encodable {
     public var dict: [String: Encodable] = [:]
+    
+    public init(dict:[String: Encodable]) {
+        self.dict = dict
+    }
+    
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         for (key, value) in dict {
