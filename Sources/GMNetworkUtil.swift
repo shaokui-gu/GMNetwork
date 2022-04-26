@@ -29,6 +29,8 @@ open class GMNetworkUtil {
         
     /// 拦截器
     public var intercapter:GMNetworkIntercepter?
+    
+    init(){}
         
     /// 异步请求
     /// - Parameter request: 请求体
