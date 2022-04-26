@@ -13,7 +13,7 @@ let package = Package(
             targets: ["GMNetwork"]),
     ],
     dependencies: [
-         .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.5.0"),
+         .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.4.0"),
          .package(name:"Reachability" ,url: "https://github.com/ashleymills/Reachability.swift", from: "5.1.0"),
     ],
     targets: [

@@ -26,9 +26,6 @@ open class GMNetworkUtil {
     
     /// 单例
     public static let shareInstance = GMNetworkUtil()
-    
-    /// 不允许new
-    private init(){}
         
     /// 拦截器
     public var intercapter:GMNetworkIntercepter?
