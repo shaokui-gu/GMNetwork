@@ -95,8 +95,8 @@ open class GMNetworkUtil {
     ///   - parameters: 参数
     ///   - delegate: 代理
     @discardableResult
-    public func POST(_ url:String, parameters:Dictionary<String, Encodable>? = nil, delegate:GMNetworkDelegate?, key:String?, customArgs:Any? = nil, showHUD:Bool = false,_ serializer:GMNetworkResponseSerializer? = nil) -> GMNetworkTask {
-        return self.request(request:GMNetworkRequest(url, method: .post, parameters: parameters == nil ? nil : Parameters.init(dict: parameters!), key: key, customArgs:customArgs, showHUD: showHUD, delegate:delegate, serializer:serializer))
+    public func POST(_ url:String, parameters:Dictionary<String, Encodable>? = nil, headers:Dictionary<String,String>? = nil, delegate:GMNetworkDelegate?, key:String?, customArgs:Any? = nil, showHUD:Bool = false,_ serializer:GMNetworkResponseSerializer? = nil) -> GMNetworkTask {
+        return self.request(request:GMNetworkRequest(url, method: .post, parameters: parameters == nil ? nil : Parameters.init(dict: parameters!), headers: headers, key: key, customArgs:customArgs, showHUD: showHUD, delegate:delegate, serializer:serializer))
     }
     
     /// PUT 请求
@@ -105,8 +105,8 @@ open class GMNetworkUtil {
     ///   - parameters: 参数
     ///   - delegate: 代理
     @discardableResult
-    public func PUT(_ url:String, parameters:Dictionary<String, Encodable>? = nil, delegate:GMNetworkDelegate?, key:String?, customArgs:Any?  = nil, showHUD:Bool = false,_ serializer:GMNetworkResponseSerializer? = nil) -> GMNetworkTask {
-        return self.request(request:GMNetworkRequest(url, method: .put, parameters: parameters == nil ? nil : Parameters.init(dict: parameters!), key: key, customArgs:customArgs, showHUD: showHUD, delegate:delegate, serializer:serializer))
+    public func PUT(_ url:String, parameters:Dictionary<String, Encodable>? = nil, headers:Dictionary<String,String>? = nil, delegate:GMNetworkDelegate?, key:String?, customArgs:Any?  = nil, showHUD:Bool = false,_ serializer:GMNetworkResponseSerializer? = nil) -> GMNetworkTask {
+        return self.request(request:GMNetworkRequest(url, method: .put, parameters: parameters == nil ? nil : Parameters.init(dict: parameters!), headers: headers, key: key, customArgs:customArgs, showHUD: showHUD, delegate:delegate, serializer:serializer))
     }
     
     /// DELETE 请求
@@ -114,8 +114,8 @@ open class GMNetworkUtil {
     ///   - path: url 路径
     ///   - delegate: 代理
     @discardableResult
-    public func DELETE(_ url:String, parameters:Dictionary<String, Encodable>? = nil, delegate:GMNetworkDelegate?, key:String?, customArgs:Any? = nil, showHUD:Bool = false,_ serializer:GMNetworkResponseSerializer? = nil) -> GMNetworkTask {
-        return self.request(request:GMNetworkRequest(url, method: .delete, parameters:parameters == nil ? nil : Parameters.init(dict: parameters!), headers: nil, key: key, customArgs:customArgs, showHUD: showHUD, delegate:delegate, serializer:serializer))
+    public func DELETE(_ url:String, parameters:Dictionary<String, Encodable>? = nil, headers:Dictionary<String,String>? = nil, delegate:GMNetworkDelegate?, key:String?, customArgs:Any? = nil, showHUD:Bool = false,_ serializer:GMNetworkResponseSerializer? = nil) -> GMNetworkTask {
+        return self.request(request:GMNetworkRequest(url, method: .delete, parameters:parameters == nil ? nil : Parameters.init(dict: parameters!), headers: headers, key: key, customArgs:customArgs, showHUD: showHUD, delegate:delegate, serializer:serializer))
     }
     
     /// UPLOAD 请求
@@ -123,7 +123,7 @@ open class GMNetworkUtil {
     ///   - path: url 路径
     ///   - delegate: 代理
     @discardableResult
-    public func FORMDATA_REQUEST(_ url:String, dataArray:[GMNetworkFormData], parameters:Dictionary<String, Encodable>? = nil, customArgs:Any? = nil, method:HTTPMethod = .upload, delegate:GMNetworkDelegate?, key:String? , showHUD:Bool = false,_ serializer:GMNetworkResponseSerializer? = nil) -> GMNetworkTask {
-        return self.request(request: GMNetworkRequest(url, method: method, parameters:parameters == nil ? nil : Parameters.init(dict: parameters!) ,dataArray: dataArray, headers: nil, key:key, customArgs:customArgs, showHUD: showHUD, delegate: delegate, serializer: serializer))
+    public func FORMDATA_REQUEST(_ url:String, dataArray:[GMNetworkFormData], parameters:Dictionary<String, Encodable>? = nil, headers:Dictionary<String,String>? = nil, customArgs:Any? = nil, method:HTTPMethod = .upload, delegate:GMNetworkDelegate?, key:String? , showHUD:Bool = false,_ serializer:GMNetworkResponseSerializer? = nil) -> GMNetworkTask {
+        return self.request(request: GMNetworkRequest(url, method: method, parameters:parameters == nil ? nil : Parameters.init(dict: parameters!) ,dataArray: dataArray, headers: headers, key:key, customArgs:customArgs, showHUD: showHUD, delegate: delegate, serializer: serializer))
     }
 }
