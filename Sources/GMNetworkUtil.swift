@@ -66,10 +66,10 @@ open class GMNetworkUtil {
             }, to: url, method: request.method, headers: HTTPHeaders(headers), interceptor: self.intercapter)
         }
         dataRequest!.uploadProgress { (progress:Progress) in
-            request.delegate?.updateRequestProgress(uploadProgress: Int(progress.completedUnitCount*100/progress.totalUnitCount), downloadProgress: 0)
+            request.delegate?.updateRequestProgress(request:request, uploadProgress: Int(progress.completedUnitCount*100/progress.totalUnitCount), downloadProgress: 0)
         }
         dataRequest!.downloadProgress { (progress:Progress) in
-            request.delegate?.updateRequestProgress(uploadProgress: 1, downloadProgress: Int(progress.completedUnitCount*100/progress.totalUnitCount))
+            request.delegate?.updateRequestProgress(request:request, uploadProgress: 1, downloadProgress: Int(progress.completedUnitCount*100/progress.totalUnitCount))
         }
         dataRequest!.responseData { [weak self] (response) in
             self?.intercapter?.responseHandler(request, response)

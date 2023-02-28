@@ -16,7 +16,7 @@ public protocol GMNetworkDelegate {
     /// - Parameters:
     ///   - uploadProgress: 上传进度0-100
     ///   - downloadProgress: 下载进度0-100
-    func updateRequestProgress(uploadProgress:Int, downloadProgress:Int)
+    func updateRequestProgress(request:GMNetworkRequest, uploadProgress:Int, downloadProgress:Int)
     
     /// 成功发送请求
     /// - Parameter request: 请求体

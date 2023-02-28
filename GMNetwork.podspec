@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "GMNetwork"
-  s.version      = "0.0.7"
+  s.version      = "0.0.8"
   s.summary      = "A network tool for GM"
   s.homepage     = "https://github.com/shaokui-gu/GMNetwork"
   s.license      = 'MIT'
